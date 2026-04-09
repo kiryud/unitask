@@ -1,0 +1,5 @@
+package kr.ac.daelim.test02
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity : FlutterActivity()
