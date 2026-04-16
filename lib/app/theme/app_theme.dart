@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widget_previews.dart';
 
 class AppTheme {
   static ThemeData get light => ThemeData.light(

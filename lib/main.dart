@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unitask/app/router/app_router.dart';
 import 'package:unitask/app/theme/app_theme.dart';
-import 'package:unitask/ui/pages/login/login_page.dart';
 
 void main() {
   runApp(const UniTaskApp());
