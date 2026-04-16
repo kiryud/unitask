@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
+import 'package:unitask/app/extensions/snackbar_extension.dart';
+import 'package:unitask/app/router/app_page.dart';
 import 'package:unitask/ui/common/label_text_field.dart';
 import 'package:unitask/app/extensions/sized_box_extension.dart';
 import 'package:unitask/ui/common/text_divider.dart';
@@ -17,7 +19,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20),
         child: Center(
           child: Column(
             mainAxisSize: .min,
@@ -53,12 +55,14 @@ class _LoginPageState extends State<LoginPage> {
                 label: "비밀번호",
                 hintText: '************',
                 icon: LucideIcons.lockKeyhole,
-                obscureText: true,
+                enableObscure: true,
               ),
               Align(
-                alignment: .centerEnd,
+                alignment: .centerRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.showSnackBar('곧 기능을 출시합니다!');
+                  },
                   child: const Text(
                     '비밀번호를 잊으셨나요?'
                   )
@@ -68,7 +72,9 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 width: .infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('로그인 버튼 눌림');
+                  },
                   child: const Text(
                     '로그인',
                     style: TextStyle(
@@ -89,7 +95,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     const Text('계정이 없으신가요?'),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.pushNamed(AppPage.signup.name);
+                      },
                       child: const Text('회원가입')
                     )
                   ],

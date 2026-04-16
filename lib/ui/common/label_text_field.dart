@@ -1,19 +1,35 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:lucide_icons_flutter/lucide_icons.dart';
 
-class LabelTextField extends StatelessWidget {
+class LabelTextField extends StatefulWidget {
+  final TextEditingController? controller;
   final String label;
   final String? hintText;
   final IconData? icon;
-  final bool obscureText;
+  final bool enableObscure;
 
   const LabelTextField({
     super.key,
+    this.controller,
     required this.label,
     this.hintText,
     this.icon,
-    this.obscureText = false,
+    this.enableObscure = false,
   });
+
+  @override
+  State<LabelTextField> createState() => _LabelTextFieldState();
+}
+
+class _LabelTextFieldState extends State<LabelTextField> {
+  late bool _obscureText = widget.enableObscure;
+
+  void _switchObscure() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +38,28 @@ class LabelTextField extends StatelessWidget {
       crossAxisAlignment: .stretch,
       children: [
         Text(
-          label,
+          widget.label,
           style: const TextStyle(
             fontWeight: .bold,
           ),
         ),
         TextField(
-          obscureText: obscureText,
+          controller: widget.controller,
+          obscureText: _obscureText,
           decoration: InputDecoration(
-            prefixIcon: Icon(icon),
-            hintText: hintText,
+            prefixIcon: Icon(widget.icon),
+            suffixIcon: widget.enableObscure
+              ? InkWell(
+                onTap: _switchObscure,
+                child: Icon(
+                  _obscureText
+                  ? LucideIcons.eyeClosed
+                  : LucideIcons.eye,
+                  color: Colors.black,
+                )
+              )
+              : null,
+            hintText: widget.hintText,
           ),
         )
       ],
