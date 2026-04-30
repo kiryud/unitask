@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 
 extension SnackbarExtension on BuildContext {
-  void showSnackBar(String text) {
+  void showSnackBar(
+    String text, {
+      bool isError = false,
+    }) {
     ScaffoldMessenger.of(this).showSnackBar(
       SnackBar(
         behavior: .floating,
-        content: Text(text),
+        backgroundColor: isError ? Colors.red : null,
+        content: Text(
+          text,
+          style: const TextStyle(
+            fontWeight: .bold,
+          ),
+        ),
       )
     );
   }
