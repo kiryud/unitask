@@ -28,7 +28,7 @@ dependencies:
 - 프로젝트 소스코드 정리를 위한 dir 생성 및 정리
 
 - 테마 관리를 위한 class작성
-[theme](app_theme.dart)
+ㅊ
 
 ### 로그인 페이지 제작
 - 로그인 페이지 제작

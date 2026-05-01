@@ -133,7 +133,9 @@ class _SignupPageState extends State<SignupPage> {
               SizedBox(
                 width: .infinity,
                 child: ElevatedButton(
-                  onPressed: _onSignup,
+                  onPressed: _loading
+                  ? null
+                  : _onSignup,
                   child: _loading 
                   ? const SizedBox.square(
                     dimension: 30,
@@ -150,7 +152,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                   )
                 ),
-              )
+              ),
             ],
           ),
         ),
