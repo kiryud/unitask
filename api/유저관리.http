@@ -1,6 +1,13 @@
-POST https://daelim.fleecy.dev/functions/v1/students/signup
+# POST https://daelim.fleecy.dev/functions/v1/students/signup
+# {
+#     "name":"",
+#     "email":"",
+#     "password":"",
+# }
+
+
+POST https://daelim.fleecy.dev/function/v1/students/login
 {
-    "name":"",
     "email":"",
     "password":"",
 }

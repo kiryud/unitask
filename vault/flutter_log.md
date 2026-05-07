@@ -16,6 +16,11 @@
 - 달력?
 - ??? (비밀번호 찾기라도 하나?)
 
+Login
+Signup
+Home
+Add Assign
+
 
 ---
 > dpi와 demention?에 대해 알아보는게 좋다

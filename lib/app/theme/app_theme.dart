@@ -10,6 +10,11 @@ class AppTheme {
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.white,
       foregroundColor: Colors.black,
+      titleTextStyle: TextStyle(
+        fontWeight: .bold,
+        color: Colors.black,
+        fontSize: 24,
+      ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       foregroundColor: Colors.white,
@@ -54,8 +59,13 @@ class AppTheme {
     visualDensity: .adaptivePlatformDensity,
     scaffoldBackgroundColor: Color(0xFF111827),
     appBarTheme: AppBarTheme(
-      backgroundColor: Colors.white,
-      foregroundColor: Color(0xFF111827),
+      backgroundColor: Color(0xFF111827),
+      foregroundColor: Colors.white,
+      titleTextStyle: TextStyle(
+        fontWeight: .bold,
+        color: Colors.white,
+        fontSize: 24,
+      ),
     ),
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       foregroundColor: Colors.white,
