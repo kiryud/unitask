@@ -2,6 +2,8 @@
 
 ## [6W](./flutter_log/flutter_log_6w.md)
 ## [7W](./flutter_log/flutter_log_7w.md)
+## [9W](./flutter_log/flutter_log_9w.md)
+## [10W](./flutter_log/flutter_log_10w.md)
 
 --- 
 새로운 프로젝트 진행
@@ -17,3 +19,11 @@
 
 ---
 > dpi와 demention?에 대해 알아보는게 좋다
+
+```shell
+flutter emulator
+
+flutter emulator --launch Medium_Phone_API_36.1
+
+
+```
