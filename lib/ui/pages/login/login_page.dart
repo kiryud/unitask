@@ -35,6 +35,11 @@ class _LoginPageState extends State<LoginPage> {
     final email = _emailController.text.trim();
     final password = _pwController.text.trim();
 
+    if (mounted) {
+      context.goNamed(AppPage.home.name);
+      return ;
+    }
+
     if (email.isEmpty || password.isEmpty) {
       return context.showSnackBar(
         '이메일 또는 비밀번호를 입력해주세요',
@@ -127,9 +132,9 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: .infinity,
                   child: ElevatedButton(
-                    onPressed: _login
-                    ? null
-                    : _onLogin,
+                    onPressed: _onLogin,//_login
+                    // ? null
+                    // : _onLogin,
                     child: _login 
                     ? const SizedBox.square(
                     dimension: 30,
