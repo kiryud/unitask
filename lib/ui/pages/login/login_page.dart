@@ -133,11 +133,9 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   width: .infinity,
                   child: ElevatedButton(
-                    onPressed: _onLogin,
-                    // 개인적인 학습을 위한 로그인 없이 페이지 이동
-                    // onPressed: _login
-                    // ? null
-                    // : _onLogin,
+                    onPressed: _login
+                    ? null
+                    : _onLogin,
                     child: _login 
                     ? const SizedBox.square(
                     dimension: 30,
