@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
-import 'package:unitask/app/extensions/snackbar_extension.dart';
+import 'package:unitask/core/extensions/build_context_extension.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
           )],
         ),
         body: SafeArea(
-          child: Placeholder()
+          child: Placeholder(),
           // TODO: body
           // TODO: costom bottom navigation bar
         ),
