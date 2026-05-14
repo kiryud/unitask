@@ -35,12 +35,6 @@ class _LoginPageState extends State<LoginPage> {
     final email = _emailController.text.trim();
     final password = _pwController.text.trim();
 
-    // 개인적인 학습을 위한 임시 처리
-    if (mounted) {
-      context.goNamed(AppPage.home.name);
-      return ;
-    }
-
     if (email.isEmpty || password.isEmpty) {
       return context.showSnackBar(
         '이메일 또는 비밀번호를 입력해주세요',
