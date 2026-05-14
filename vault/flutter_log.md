@@ -25,6 +25,8 @@ Add Assign
 ---
 > dpi와 demention?에 대해 알아보는게 좋다
 
+## [flutter_module](./flutter_module/flutter_module.md)
+
 ```shell
 flutter emulator
 
