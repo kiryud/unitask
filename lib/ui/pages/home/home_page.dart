@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
           )],
         ),
         body: SafeArea(
-          child: Placeholder(),
+          child:  Chip(label: Text('asdf')),
           // TODO: body
           // TODO: costom bottom navigation bar
         ),

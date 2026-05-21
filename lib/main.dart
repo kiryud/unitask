@@ -6,7 +6,7 @@ import 'package:unitask/app/theme/app_theme.dart';
 void main() {
   runApp(
     const ProviderScope(
-      child: const UniTaskApp()
+      child: UniTaskApp()
     )
   );
 }
