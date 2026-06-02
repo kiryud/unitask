@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:unitask/app/theme/preview.dart';
+import 'package:unitask/ui/common/subject_label.dart';
 
 @AppThemePreview(
   group: 'Button',
@@ -10,7 +12,7 @@ Widget TaskCardPreview() => Wrap(
   spacing: 10,
   runSpacing: 10,
   children: [
-    TaskCard(category: Text('전체'), title: 'title', date: DateTime.now(),),
+    TaskCard(category: SubjectLabel(text:'전체'), title: 'title', date: DateTime.now(),),
     TaskCard(category: Text('진행중'), title: 'title', date: DateTime.now(),),
     TaskCard(category: Text('완료'), title: 'title', date: DateTime.now(),),
   ],
@@ -36,36 +38,77 @@ class TaskCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final dDay = date.difference(DateTime.now()).inDays;
+    final dDayColor = switch (dDay) {
+      <= 3 => Colors.red, // 3d left
+      <= 7 => Colors.orange, // 7d left
+      _ => Colors.black, // default
+    };
+
     return Card(
-      child: Column(
-        crossAxisAlignment: .stretch,
-        children: [
-          Row(
-            mainAxisAlignment: .spaceBetween,
-            children: [
-              category,
-              Checkbox(
-                value: checked,
-                onChanged: onchecked
-              ),
-            ],
-          ),
-          Text(title),
-          Row(
-            children: [
-              Icon(LucideIcons.calendar),
-              // TODO: 아이콘 색상 설정은 아래와 같음
-              // =< D-3 : red
-              // =< D-7 : orange
-              // > D-7 : black
-              // complete : grey
-              Text(
-                'datetime',
-                // TODO: DateTime 사용, intl을 통해 서식 계산
+      child: Container(
+        height: 120,
+        padding: const .symmetric(
+          vertical: 6,
+          horizontal: 12,
+        ),
+        child: Column(
+          crossAxisAlignment: .stretch,
+          mainAxisAlignment: .spaceBetween,
+          children: [
+            // 과목 라벨 / 체크박스
+            Row(
+              mainAxisAlignment: .spaceBetween,
+              children: [
+                category,
+                Checkbox(
+                  value: checked,
+                  onChanged: onchecked,
+                  visualDensity: .compact,
+                  fillColor: .resolveWith(
+                    (states) => states.contains(WidgetState.selected)
+                    ? Colors.blue
+                    : Color(0xFFF3F4F6)
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: .circular(5),
+                  ),
+                  side: BorderSide(
+                    color: Colors.transparent,
+                  ),
+                  materialTapTargetSize: .shrinkWrap,
                 ),
-            ]
-          ),
-        ],
+              ],
+            ),
+            // 타이틀
+            Text(
+              title,
+              maxLines: 1,
+              overflow: .ellipsis,
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: .bold,
+              ),
+            ),
+            // 기한 표시
+            Row(
+              children: [
+                Icon(
+                  LucideIcons.calendarRange,
+                  size: 12,
+                  color: dDayColor,
+                ),
+                Text(
+                  DateFormat('yyyy.MM.dd').format(date),
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: dDayColor,
+                  ),
+                ),
+              ]
+            ),
+          ],
+        ),
       ),
     );
   }
