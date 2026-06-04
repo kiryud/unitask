@@ -6,8 +6,6 @@ import 'package:unitask/core/extensions/build_context_extension.dart';
 import 'package:unitask/app/router/app_page.dart';
 import 'package:unitask/core/models/result.dart';
 import 'package:unitask/features/auth/auth_provider.dart';
-import 'package:unitask/models/auth_data.dart';
-import 'package:unitask/services/auth_api_service.dart';
 import 'package:unitask/ui/common/label_text_field.dart';
 import 'package:unitask/core/extensions/sized_box_extension.dart';
 import 'package:unitask/ui/common/text_divider.dart';

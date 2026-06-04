@@ -5,7 +5,6 @@ import 'package:lucide_icons_flutter/lucide_icons.dart';
 import 'package:unitask/core/extensions/build_context_extension.dart';
 import 'package:unitask/core/models/result.dart';
 import 'package:unitask/features/auth/auth_provider.dart';
-import 'package:unitask/services/auth_api_service.dart';
 import 'package:unitask/ui/common/label_text_field.dart';
 
 class SignupPage extends ConsumerStatefulWidget {
