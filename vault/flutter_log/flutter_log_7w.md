@@ -30,6 +30,8 @@ shared_preferences: ^2.5.5
 #### 중간고사용 앱 빌드 및 제출하기
 
 ```shell
+flutter create --org [organization_identifier] [project_name]
+
 flutter build apk --release --split-per-abi
 # 지정된 apk file 위치 이동 (밖으로)
 flutter clean # 이후 압축해서 제출
